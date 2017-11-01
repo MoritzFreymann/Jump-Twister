@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SuRT</title>
+	<link rel="stylesheet" type="text/css" href="Jump-Twister.css">
+</head>
+<body>
+	<script src="Jump-Twister.js">
+	</script>
+	
+	<form id="Input">
+		
+		<form action="action_page.php">
+		<br>
+		Übungsdauer [s]: <input type="text" name="dauer" value="120"><br>
+		Zeit zwischen Kommandos [s]: <input type="T" name="VPN" value="5"><br>
+		Kommandotyp Füße: <input type="text" name="VPN" value="Zahlen"><br>
+		Kommandotyp Hand: <input type="text" name="VPN" value="Farben"><br>
+		
+		<p>Geben Sie die Art des Kommados der Füße ein:</p>
+		<fieldset>
+			<input type="radio" id="zahlen" name="Kommandotyp" value="Zahlen">
+			<label for="zahlen"> Zahlen</label> 
+			<input type="radio" id="farben" name="Kommandotyp" value="Farben">
+			<label for="farben"> Farben</label>
+		</fieldset>
+		<br>
+		
+		<input id="button" type="button" onclick="EndInput();"> Fertig </input>
+	</form>
+	
+<div id = "HintergrundUebung"> </div>
+<div id = "rotesQuadrat"> </div>
+		
+
+</body>
+</html>
