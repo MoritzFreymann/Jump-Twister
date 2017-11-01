@@ -31,9 +31,70 @@ body {
 	z-index: 10;
 }
 /*rotes Quadrat*/
-#rotesQuadrat {
+#Quadrat_linker_Fuss{
 
-	border: 1px solid red;
+	border: 0px solid red;
+	position: absolute;
+	display: block;
+	left: 30%;
+	top: 30%;
+	height: 40px;
+	width: 40px;
+	background-color: red;
+	z-index: 1;
+}
+#Quadrat_rechter_Fuss{
+
+	border: 0px solid red;
+	position: absolute;
+	display: block;
+	left: 30%;
+	top: 30%;
+	height: 40px;
+	width: 40px;
+	background-color: red;
+	z-index: 1;
+}
+#Quadrat_Hand{
+
+	border: 0px solid red;
+	position: absolute;
+	display: block;
+	left: 30%;
+	top: 30%;
+	height: 40px;
+	width: 40px;
+	background-color: red;
+	z-index: 1;
+}
+/* Zahlen */
+#Zahl_linker_Fuss{
+
+	border: 0px solid red;
+	position: absolute;
+	display: block;
+	left: 30%;
+	top: 30%;
+	height: 40px;
+	width: 40px;
+	background-color: red;
+	z-index: 1;
+}
+#Zahl_rechter_Fuss{
+
+	border: 0px solid red;
+	position: absolute;
+	display: block;
+	left: 30%;
+	top: 30%;
+	height: 40px;
+	width: 40px;
+	background-color: red;
+	z-index: 1;
+}
+#Zahl_Hand{
+
+	border: 0px solid red;
 	position: absolute;
 	display: block;
 	left: 30%;

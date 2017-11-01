@@ -12,26 +12,28 @@
 		
 		<form action="action_page.php">
 		<br>
-		Übungsdauer [s]: <input type="text" name="dauer" value="120"><br>
-		Zeit zwischen Kommandos [s]: <input type="T" name="VPN" value="5"><br>
-		Kommandotyp Füße: <input type="text" name="VPN" value="Zahlen"><br>
-		Kommandotyp Hand: <input type="text" name="VPN" value="Farben"><br>
+		Übungsdauer [s]: <input type="number" id="dauer" name="dauer" value="120"><br>
+		Zeit zwischen Kommandos [s]: <input type="number" id="T" name="T" value="5"><br>
 		
 		<p>Geben Sie die Art des Kommados der Füße ein:</p>
 		<fieldset>
-			<input type="radio" id="zahlen" name="Kommandotyp" value="Zahlen">
-			<label for="zahlen"> Zahlen</label> 
-			<input type="radio" id="farben" name="Kommandotyp" value="Farben">
-			<label for="farben"> Farben</label>
+			<input type="checkbox" id="zahlen" name="Kommandotyp_Fuesse" value="Zahlen" checked> Zahlen<br>
+			<input type="checkbox" id="zahlen" name="Kommandotyp_Fuesse" value="Farben"> Farben<br>
 		</fieldset>
 		<br>
 		
 		<input id="button" type="button" onclick="EndInput();"> Fertig </input>
 	</form>
 	
+	<button id = "losgehts" type="button" onclick="Do();"> Los geht's! </input>
+	
 <div id = "HintergrundUebung"> </div>
-<div id = "rotesQuadrat"> </div>
-		
+<div id = "Quadrat_linker_Fuss"> </div>
+<div id = "Quadrat_rechter_Fuss"> </div>
+<div id = "Quadrat_Hand"> </div>
+<div id = "Zahl_linker_Fuss"> </div>
+<div id = "Zahl_rechter_Fuss"> </div>
+<div id = "Zahl_Hand"> </div>	
 
 </body>
 </html>
