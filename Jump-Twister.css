@@ -4,8 +4,15 @@ body {
 	background-color: blue;
 }
 /*Hintergrund Input*/
-#HintergrundInput{
-
+#losgehts{
+	position: absolute;
+	display: block;
+	left: 0%;
+	top: 0%;
+	height: 50%;
+	width: 50%;
+	background-color: green;
+	z-index: 1;
 }
 /*Hintergrund_Uebung*/
 #HintergrundUebung{
@@ -36,8 +43,8 @@ body {
 	border: 0px solid red;
 	position: absolute;
 	display: block;
-	left: 30%;
-	top: 30%;
+	left: 50%;
+	top: 50%;
 	height: 40px;
 	width: 40px;
 	background-color: red;
@@ -60,7 +67,7 @@ body {
 	border: 0px solid red;
 	position: absolute;
 	display: block;
-	left: 30%;
+	left: 50%;
 	top: 30%;
 	height: 40px;
 	width: 40px;
