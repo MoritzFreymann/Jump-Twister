@@ -75,7 +75,6 @@ function EndInput(){
 	//
 	getvalues();
 	
-	console.log(dauer);
 }
 // ----------------
 // Start
@@ -124,28 +123,31 @@ function Do(){
 	// zeige Zeit
 	document.getElementById('Timer').innerHTML = time;
 	
-		if( false ){
-			lasttime = currenttime;	// letzte Ausfuehrungszeitpunkt ist aktueller Ausfuehrungszeitpunkt
-		
+	console.log(currenttime - lasttime - T);
+		if( currenttime - lasttime >= T ){
+			
+			lasttime = currenttime;	// letzter Ausfuehrungszeitpunkt ist aktueller Ausfuehrungszeitpunkt
+			console.log(lasttime);
 			// get random Numbers
 			getrandomNumbers();
 		
 			switch(typ){
 			case 1:
-				var d = document.getElementById('Quadrat_linker_Fuss');
-				d.style.backgroundColor = 'green';
-				var d = document.getElementById('Quadrat_rechter_Fuss');
-				d.style.backgroundColor = 'green';
-				var d = document.getElementById('Quadrat_Hand');
-				d.style.backgroundColor = 'green';
+				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'green';
+				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'green';
+				document.getElementById('Quadrat_Hand').style.backgroundColor = 'green';
+				typ = 2;
 				break;
 			case 2:
+				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'red';
+				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'red';
+				document.getElementById('Quadrat_Hand').style.backgroundColor = 'red';
+				typ = 1;
 				break;
 			default:
 				break;
 			}
-		}
-	
+		}	
 	//
 	if(time > 0)
 	{
@@ -171,7 +173,7 @@ function getvalues(){
 function getrandomNumbers(){
 	
 	random = Math.random() * 4;
-	linker_Fuss = Math.ceil(radnom);
+	linker_Fuss = Math.ceil(random);
 	
 	random = Math.random() * 4;
 	rechter_Fuss = Math.ceil(random);
