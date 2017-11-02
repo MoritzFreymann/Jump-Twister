@@ -71,9 +71,11 @@ function EndInput(){
 	// zeige losgehts Button
 	var d = document.getElementById('losgehts');
 	d.style.zIndex = 20;
-//	alert("Eingabe" + dauer + );
+
 	//
 	getvalues();
+	
+	console.log(dauer);
 }
 // ----------------
 // Start
@@ -117,8 +119,8 @@ function Do(){
 	currenttime = date.getHours() *3600 + date.getMinutes() *60 + date.getSeconds();
 	
 	// verbleibende Zeit berechnen
-	time = (starttime + dauer ) - currenttime;
-	
+	time = dauer - (currenttime - starttime);
+
 	// zeige Zeit
 	document.getElementById('Timer').innerHTML = time;
 	
