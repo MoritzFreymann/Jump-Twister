@@ -133,16 +133,20 @@ function Do(){
 		
 			switch(typ){
 			case 1:
-				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'green';
+				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
 				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'green';
 				document.getElementById('Quadrat_Hand').style.backgroundColor = 'green';
-				typ = 2;
 				break;
 			case 2:
 				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'red';
 				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'red';
 				document.getElementById('Quadrat_Hand').style.backgroundColor = 'red';
-				typ = 1;
+				typ = 3;
+				break;
+			case 3:
+				document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
+				document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
+				document.getElementById('Quadrat_Hand').innerHTML = Hand;		
 				break;
 			default:
 				break;
@@ -180,4 +184,26 @@ function getrandomNumbers(){
 	
 	random = Math.random() * 4;
 	Hand = Math.ceil(random);
+}
+// 
+function getColor(i){
+	var color = 'white';
+	switch(i){
+		case 1:
+			color= 'red';			
+			break;
+		case 2:
+			color = 'green';
+			break;
+		case 3:
+			color = 'blue';
+			break;
+		case 4:
+			color = 'yellow';
+			break;
+		default:
+			color = 'white';
+			break;		
+	}	
+	return color;
 }

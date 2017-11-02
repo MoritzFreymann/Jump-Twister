@@ -17,3 +17,4 @@ GUI
 	
 Zunächst soll die Übung nur mit einer Schwierigkeiststufe absolviert werden können.
 Danach soll die App in der Lage sein, die Übung schwieriger zu gestalten (was vorher eingeben wird).
+Es soll möglich sein, dass die Kommandoarten gewechselt werden (typ ist eine zufällige Nummer)
