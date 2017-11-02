@@ -8,6 +8,7 @@ var Kommandotyp_Fuesse = 'leer';
 var currenttime = 0;
 var starttime = 0;
 var lasttime = 0;
+var time = 0;
 // Zahlen
 var random = 0;
 var linker_Fuss = 0;
@@ -70,14 +71,14 @@ function EndInput(){
 	// zeige losgehts Button
 	var d = document.getElementById('losgehts');
 	d.style.zIndex = 20;
-	
+//	alert("Eingabe" + dauer + );
 	//
 	getvalues();
 }
 // ----------------
 // Start
 function Start(){
-	
+
 	// Startzeit in Sekunden
 	var date = new Date();
 	starttime = date.getHours() *3600 + date.getMinutes() *60 + date.getSeconds();
@@ -87,7 +88,7 @@ function Start(){
 	d.style.zIndex = 1;
 	
 	// Aufrufen der Objekte
-	document.getElementById('Timer').style.zIndex = 20;;
+	document.getElementById('Timer').style.zIndex = 20;
 	
 	switch(typ){
 	case 1:
@@ -110,13 +111,18 @@ function Start(){
 // ----------------
 // Do
 function Do(){
-	
-		
+			
 	// get current time
 	var date = new Date();
 	currenttime = date.getHours() *3600 + date.getMinutes() *60 + date.getSeconds();
 	
-		if( true ){
+	// verbleibende Zeit berechnen
+	time = (starttime + dauer ) - currenttime;
+	
+	// zeige Zeit
+	document.getElementById('Timer').innerHTML = time;
+	
+		if( false ){
 			lasttime = currenttime;	// letzte Ausfuehrungszeitpunkt ist aktueller Ausfuehrungszeitpunkt
 		
 			// get random Numbers
@@ -137,8 +143,21 @@ function Do(){
 				break;
 			}
 		}
+	
+	//
+	if(time > 0)
+	{
+		var timeout = window.setTimeout('Do()', 1000);
+	}
+	else{
+		End();
+	}
 }
 //
+// End
+function End(){
+	
+}
 
 //
 function getvalues(){
