@@ -75,6 +75,9 @@ function EndInput(){
 	//
 	getvalues();
 	
+	// 
+	getType();
+	
 }
 // ----------------
 // Start
@@ -169,6 +172,10 @@ function getvalues(){
 	dauer = document.getElementById("dauer").value;
 	T = document.getElementById("T").value;
 	Kommandotyp_Fuesse = document.getElementById("zahlen").value;
+}
+//
+function getType(){
+	
 }
 //
 function getrandomNumbers(){
