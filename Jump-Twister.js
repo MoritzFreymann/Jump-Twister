@@ -73,15 +73,14 @@ function EndInput(){
 	
 	//
 	getvalues();
+}
+// ----------------
+// Start
+function Start(){
 	
 	// Startzeit in Sekunden
 	var date = new Date();
 	starttime = date.getHours() *3600 + date.getMinutes() *60 + date.getSeconds();
-	
-}
-//
-// Start
-function Start(){
 	
 	// verstecke losgehts-Button
 	var d = document.getElementById('losgehts');
@@ -106,6 +105,7 @@ function Start(){
 	// los geht's
 	Do();
 }
+// ----------------
 // Do
 function Do(){
 	
