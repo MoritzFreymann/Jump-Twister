@@ -111,3 +111,15 @@ body {
 	background-color: red;
 	z-index: 1;
 }
+#Timer{
+
+	border: 1px solid black;
+	position: absolute;
+	display: block;
+	right: 10%;
+	top: 10%;
+	height: 40px;
+	width: 100px;
+	background-color: white;
+	z-index: 1;
+}

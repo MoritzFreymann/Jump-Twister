@@ -87,6 +87,8 @@ function Start(){
 	d.style.zIndex = 1;
 	
 	// Aufrufen der Objekte
+	document.getElementById('Timer').style.zIndex = 20;;
+	
 	switch(typ){
 	case 1:
 		var d = document.getElementById('Quadrat_linker_Fuss');
