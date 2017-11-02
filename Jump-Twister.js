@@ -81,14 +81,9 @@ function EndInput(){
 }
 //
 // Start
-function start(){
-	// los geht's
-	Do();
-}
-// Do
-function Do(){
+function Start(){
 	
-	// verstecke losgehts Button
+	// verstecke losgehts-Button
 	var d = document.getElementById('losgehts');
 	d.style.zIndex = 1;
 	
@@ -108,13 +103,18 @@ function Do(){
 		break;
 	}
 	
-	while( currenttime - starttime < dauer ){	// pruefen, ob Dauer noch nicht überschritten
+	// los geht's
+	Do();
+}
+// Do
+function Do(){
+	
 		
 	// get current time
 	var date = new Date();
 	currenttime = date.getHours() *3600 + date.getMinutes() *60 + date.getSeconds();
 	
-		if( currenttime - lasttime > T ){
+		if( true ){
 			lasttime = currenttime;	// letzte Ausfuehrungszeitpunkt ist aktueller Ausfuehrungszeitpunkt
 		
 			// get random Numbers
@@ -135,7 +135,6 @@ function Do(){
 				break;
 			}
 		}
-	}
 }
 //
 
