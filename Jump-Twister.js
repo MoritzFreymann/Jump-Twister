@@ -80,6 +80,11 @@ function EndInput(){
 	
 }
 //
+// Start
+function start(){
+	// los geht's
+	Do();
+}
 // Do
 function Do(){
 	
