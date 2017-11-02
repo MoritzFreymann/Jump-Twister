@@ -93,12 +93,9 @@ function Start(){
 	
 	switch(typ){
 	case 1:
-		var d = document.getElementById('Quadrat_linker_Fuss');
-		d.style.zIndex = 20;
-		var d = document.getElementById('Quadrat_rechter_Fuss');
-		d.style.zIndex = 20;
-		var d = document.getElementById('Quadrat_Hand');
-		d.style.zIndex = 20;
+		var d = document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
+		var d = document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
+		var d = document.getElementById('Quadrat_Hand').style.zIndex = 20;
 		break;
 	case 2:
 		break;
@@ -134,8 +131,8 @@ function Do(){
 			switch(typ){
 			case 1:
 				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
-				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'green';
-				document.getElementById('Quadrat_Hand').style.backgroundColor = 'green';
+				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = getColor(rechter_Fuss);
+				document.getElementById('Quadrat_Hand').style.backgroundColor = getColor(Hand);
 				break;
 			case 2:
 				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'red';
