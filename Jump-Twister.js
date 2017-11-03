@@ -16,6 +16,7 @@ var linker_Fuss = 0;
 var rechter_Fuss = 0;
 var Hand = 0;
 // Typ
+var gemischt = false;
 var typ_fuesse = 1;
 var typ_heande = 1;
 // Screen
@@ -123,19 +124,25 @@ function Do(){
 			// Berechne Zufallszahlen
 			getrandomNumbers();
 	
-			// Wenn Gemischt, dann bestimme Typ
+			// Wenn 'Gemischt', dann bestimme Typ
 			if(Kommandotyp_Fuesse == 'Gemischt'){
+				
+				gemischt = true;
+				
+			}
+			if(gemischt){
 				Kommandotyp_Fuesse = getTyp();
 			}
 			
 			switch(Kommandotyp_Fuesse){
 			case 'Zahlen':
+			
 				document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
 				document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
 
-				}
 				break;
 			case 'Farben':
+			
 				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
 				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = getColor(rechter_Fuss);
 				
@@ -214,9 +221,11 @@ function getColor(i){
 //
 function getTyp(){
 	
+	console.log('cookie');
+	
 	var random = Math.random();
 	var typ = Math.round(random);
-
+				
 	if(typ==0){
 		var newTyp = 'Zahlen';
 	}
