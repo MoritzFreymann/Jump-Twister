@@ -135,17 +135,34 @@ function Do(){
 			}
 			
 			switch(Kommandotyp_Fuesse){
+				
 			case 'Zahlen':
-			
+				// Setze Zahlen
+				document.getElementById('Quadrat_linker_Fuss').style.color = 'black';
+				document.getElementById('Quadrat_rechter_Fuss').style.color = 'black';
 				document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
 				document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
-
+				// Setze Farben
+				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'white';
+				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'white';
+				// Setzte Rand
+				document.getElementById('Quadrat_linker_Fuss').style.border = '1px solid black';
+				document.getElementById('Quadrat_rechter_Fuss').style.border = '1px solid black';
 				break;
-			case 'Farben':
-			
-				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
-				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = getColor(rechter_Fuss);
 				
+			case 'Farben':
+				// Erhalte neue Farben
+				var color_left = getColor(linker_Fuss);
+				var color_right = getColor(rechter_Fuss);
+				// Setze Farben
+				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = color_left;
+				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = color_right;
+				// Setze Farben der Zahlen auf Farben der Quadrate
+				document.getElementById('Quadrat_linker_Fuss').style.color = color_left;
+				document.getElementById('Quadrat_rechter_Fuss').style.color = color_right;
+				// Entferne Rand
+				document.getElementById('Quadrat_linker_Fuss').style.border = '0px solid black';
+				document.getElementById('Quadrat_rechter_Fuss').style.border = '0px solid black';
 				break;
 			default:
 				alert('Unzulässige Eingabe!');
@@ -181,8 +198,6 @@ function getvalues(){
 	if(document.getElementById("zahlen3").checked){
 		Kommandotyp_Fuesse = document.getElementById("zahlen3").value;
 	}
-	
-	
 }
 //
 function getrandomNumbers(){
@@ -220,8 +235,6 @@ function getColor(i){
 }
 //
 function getTyp(){
-	
-	console.log('cookie');
 	
 	var random = Math.random();
 	var typ = Math.round(random);
