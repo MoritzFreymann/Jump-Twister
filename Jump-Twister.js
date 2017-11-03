@@ -105,7 +105,7 @@ function Start(){
 // ----------------
 // Do
 function Do(){
-			
+	
 	// get current time
 	var date = new Date();
 	currenttime = date.getHours() *3600 + date.getMinutes() *60 + date.getSeconds();
@@ -122,29 +122,26 @@ function Do(){
 
 			// Berechne Zufallszahlen
 			getrandomNumbers();
-		
-			console.log(Kommandotyp_Fuesse);
+	
+			// Wenn Gemischt, dann bestimme Typ
+			if(Kommandotyp_Fuesse == 'Gemischt'){
+				Kommandotyp_Fuesse = getTyp();
+			}
+			
 			switch(Kommandotyp_Fuesse){
 			case 'Zahlen':
 				document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
 				document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
+
+				}
 				break;
 			case 'Farben':
 				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
 				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = getColor(rechter_Fuss);
+				
 				break;
-			case 'Gemischt':
-			console.log('cookie');
-				if( getTyp() == 'Zahlen' ){
-					document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
-					document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
-				}
-				else{
-					document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
-					document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = getColor(rechter_Fuss);					
-				}
-
 			default:
+				alert('Unzulässige Eingabe!');
 				break;
 			}
 		}	
