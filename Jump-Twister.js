@@ -98,7 +98,7 @@ function Start(){
 	document.getElementById('Timer').style.zIndex = 20;
 	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
 	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
-	document.getElementById('Quadrat_Hand').style.zIndex = 20;
+	document.getElementById('Quadrat_rechte_Hand').style.zIndex = 20;
 	
 	// los geht's
 	Do();
@@ -123,6 +123,10 @@ function Do(){
 
 			// Berechne Zufallszahlen
 			getrandomNumbers();
+	
+			// ---------------------------
+			// Fuesse
+			// ---------------------------
 	
 			// Wenn 'Gemischt', dann bestimme Typ
 			if(Kommandotyp_Fuesse == 'Gemischt'){
@@ -168,8 +172,54 @@ function Do(){
 				alert('Unzulässige Eingabe!');
 				break;
 			}
+			
+			// ---------------------------
+			// Haende
+			// ---------------------------
+			
+			if(gemischt){
+				Kommandotyp_Haende = getTyp();
+			}
+			
+			switch(Kommandotyp_Haende){
+				
+				case 'Zahlen':
+				// Setze Zahlen
+				document.getElementById('Quadrat_linker_Fuss').style.color = 'black';
+				document.getElementById('Quadrat_rechter_Fuss').style.color = 'black';
+				document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
+				document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
+				// Setze Farben
+				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'white';
+				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'white';
+				// Setzte Rand
+				document.getElementById('Quadrat_linker_Fuss').style.border = '1px solid black';
+				document.getElementById('Quadrat_rechter_Fuss').style.border = '1px solid black';
+				break;
+				
+			case 'Farben':
+				// Erhalte neue Farben
+				var color_left = getColor(linker_Fuss);
+				var color_right = getColor(rechter_Fuss);
+				// Setze Farben
+				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = color_left;
+				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = color_right;
+				// Setze Farben der Zahlen auf Farben der Quadrate
+				document.getElementById('Quadrat_linker_Fuss').style.color = color_left;
+				document.getElementById('Quadrat_rechter_Fuss').style.color = color_right;
+				// Entferne Rand
+				document.getElementById('Quadrat_linker_Fuss').style.border = '0px solid black';
+				document.getElementById('Quadrat_rechter_Fuss').style.border = '0px solid black';
+				break;
+			default:
+				alert('Unzulässige Eingabe!');
+				break;
+			}
 		}	
-	//
+
+	// ---------------------------
+	//	Nachstes Kommando
+	// ---------------------------
 	if(time > 0)
 	{
 		var timeout = window.setTimeout('Do()', 1000);
