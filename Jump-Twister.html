@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SuRT</title>
+    <title>Horst</title>
 	<link rel="stylesheet" type="text/css" href="Jump-Twister.css">
 </head>
 <body>
 	<script src="Jump-Twister.js">
 	</script>
 	
-	<form id="Input">
+	<form action="" id="Input1">
 		
-		<form action="action_page.php">
 		<br>
 		Übungsdauer [s]: <input type="number" id="dauer" name="dauer" value="120"><br>
 		Zeit zwischen Kommandos [s]: <input type="number" id="T" name="T" value="5"><br>
-		
+	</form>	
+
+	<form action="" id="Input2">	
 		<p>Geben Sie die Art des Kommados der Füße ein:</p>
 		<fieldset>
-			<input type="checkbox" id="zahlen" name="Kommandotyp_Fuesse" value="Zahlen" checked> Zahlen<br>
-			<input type="checkbox" id="zahlen" name="Kommandotyp_Fuesse" value="Farben"> Farben<br>
+			<input type="radio" id="zahlen1" name="Kommandotyp_Fuesse" value="Zahlen" checked> Zahlen<br>
+			<input type="radio" id="zahlen2" name="Kommandotyp_Fuesse" value="Farben"> Farben<br>
+			<input type="radio" id="zahlen3" name="Kommandotyp_Fuesse" value="Gemischt"> Gemischt<br>
 		</fieldset>
 		<br>
-		
-		<input id="button" type="button" onclick="EndInput();"> Fertig </input>
-	</form>
+	</form>	
 	
-	<input id = "losgehts" type="button" onclick="Start();"> Los geht's! </input>
+	<input id="fertig" type="button" onclick="EndInput();"> Fertig </input>
+	
+	<input id = "Start" type="button" onclick="Start();"> Los geht's! </input>
 	
 <div id = "HintergrundUebung"> </div>
 <div id = "Quadrat_linker_Fuss"> </div>

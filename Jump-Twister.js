@@ -4,18 +4,20 @@ var dauer = 0;
 var korrektedauer = 0;
 var T = 0;
 var Kommandotyp_Fuesse = 'leer';
+var Anzahl_Haende = 'ohne';
+var Kommandotyp_Haende = 'leer';
 // Timer
 var currenttime = 0;
 var starttime = 0;
 var lasttime = 0;
 var time = 0;
 // Zahlen
-var random = 0;
 var linker_Fuss = 0;
 var rechter_Fuss = 0;
 var Hand = 0;
 // Typ
-var typ = 1;
+var typ_fuesse = 1;
+var typ_heande = 1;
 // Screen
 var screenheight = 0;
 var screenwidth = 0;
@@ -63,20 +65,21 @@ function GetRightPosition(){
 */
 // EndInput
 function EndInput(){
-	var d = document.getElementById('Input');
-	d.style.zIndex = 1;
-	var d = document.getElementById('HintergrundUebung');
-	d.style.zIndex = 10;
 	
-	// zeige losgehts Button
-	var d = document.getElementById('losgehts');
-	d.style.zIndex = 20;
+	//  verstecke Objekte
+	document.getElementById('Input1').style.zIndex = 1;
+	document.getElementById('Input2').style.zIndex = 1;
+	//document.getElementById('Input3').style.zIndex = 1;
+	document.getElementById('fertig').style.zIndex = 1;
+
+	document.getElementById('HintergrundUebung').style.zIndex = 10;
+	
+	// zeige Start Button
+	document.getElementById('Start').style.zIndex = 20;
+
 
 	//
 	getvalues();
-	
-	// 
-	getType();
 	
 }
 // ----------------
@@ -87,24 +90,14 @@ function Start(){
 	var date = new Date();
 	starttime = date.getHours() *3600 + date.getMinutes() *60 + date.getSeconds();
 	
-	// verstecke losgehts-Button
-	var d = document.getElementById('losgehts');
-	d.style.zIndex = 1;
+	// verstecke Start-Button
+	document.getElementById('Start').style.zIndex = 1;
 	
 	// Aufrufen der Objekte
 	document.getElementById('Timer').style.zIndex = 20;
-	
-	switch(typ){
-	case 1:
-		var d = document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
-		var d = document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
-		var d = document.getElementById('Quadrat_Hand').style.zIndex = 20;
-		break;
-	case 2:
-		break;
-	default:
-		break;
-	}
+	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
+	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
+	document.getElementById('Quadrat_Hand').style.zIndex = 20;
 	
 	// los geht's
 	Do();
@@ -123,31 +116,34 @@ function Do(){
 	// zeige Zeit
 	document.getElementById('Timer').innerHTML = time;
 	
-	console.log(currenttime - lasttime - T);
 		if( currenttime - lasttime >= T ){
 			
 			lasttime = currenttime;	// letzter Ausfuehrungszeitpunkt ist aktueller Ausfuehrungszeitpunkt
-			console.log(lasttime);
-			// get random Numbers
+
+			// Berechne Zufallszahlen
 			getrandomNumbers();
 		
-			switch(typ){
-			case 1:
-				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
-				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = getColor(rechter_Fuss);
-				document.getElementById('Quadrat_Hand').style.backgroundColor = getColor(Hand);
-				break;
-			case 2:
-				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'red';
-				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'red';
-				document.getElementById('Quadrat_Hand').style.backgroundColor = 'red';
-				typ = 3;
-				break;
-			case 3:
+			console.log(Kommandotyp_Fuesse);
+			switch(Kommandotyp_Fuesse){
+			case 'Zahlen':
 				document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
 				document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
-				document.getElementById('Quadrat_Hand').innerHTML = Hand;		
 				break;
+			case 'Farben':
+				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
+				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = getColor(rechter_Fuss);
+				break;
+			case 'Gemischt':
+			console.log('cookie');
+				if( getTyp() == 'Zahlen' ){
+					document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
+					document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
+				}
+				else{
+					document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = getColor(linker_Fuss);
+					document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = getColor(rechter_Fuss);					
+				}
+
 			default:
 				break;
 			}
@@ -171,22 +167,29 @@ function End(){
 function getvalues(){
 	dauer = document.getElementById("dauer").value;
 	T = document.getElementById("T").value;
-	Kommandotyp_Fuesse = document.getElementById("zahlen").value;
-}
-//
-function getType(){
+	
+	if(document.getElementById("zahlen1").checked){
+		Kommandotyp_Fuesse = document.getElementById("zahlen1").value;
+	}
+	if(document.getElementById("zahlen2").checked){
+		Kommandotyp_Fuesse = document.getElementById("zahlen2").value;
+	}
+	if(document.getElementById("zahlen3").checked){
+		Kommandotyp_Fuesse = document.getElementById("zahlen3").value;
+	}
+	
 	
 }
 //
 function getrandomNumbers(){
 	
-	random = Math.random() * 4;
+	var random = Math.random() * 4;
 	linker_Fuss = Math.ceil(random);
 	
-	random = Math.random() * 4;
+	var random = Math.random() * 4;
 	rechter_Fuss = Math.ceil(random);
 	
-	random = Math.random() * 4;
+	var random = Math.random() * 4;
 	Hand = Math.ceil(random);
 }
 // 
@@ -210,4 +213,18 @@ function getColor(i){
 			break;		
 	}	
 	return color;
+}
+//
+function getTyp(){
+	
+	var random = Math.random();
+	var typ = Math.round(random);
+
+	if(typ==0){
+		var newTyp = 'Zahlen';
+	}
+	else{
+		var newTyp = 'Farben';
+	}
+	return newTyp;
 }
