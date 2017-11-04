@@ -41,10 +41,11 @@ function Screen(){
 // --------------------------------------------------------------------------------
 function EndInput(){
 	
-	//  verstecke Objekte
+	// verstecke Objekte
 	document.getElementById('Input1').style.zIndex = 1;
 	document.getElementById('Input2').style.zIndex = 1;
-	//document.getElementById('Input3').style.zIndex = 1;
+	document.getElementById('Input_anzahl_haende').style.zIndex = 1;
+	document.getElementById('Input3').style.zIndex = 1;
 	document.getElementById('fertig').style.zIndex = 1;
 
 	document.getElementById('HintergrundUebung').style.zIndex = 10;
@@ -75,7 +76,7 @@ function Start(){
 	document.getElementById('Start').style.zIndex = 1;
 	
 	// Aufrufen der Objekte
-		document.getElementById('HintergrundUebung').style.zIndex = 10
+		document.getElementById('HintergrundUebung').style.zIndex = 10;
 	document.getElementById('Timer').style.zIndex = 20;
 	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
 	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
@@ -229,7 +230,7 @@ function Do(){
 	// ---------------------------
 	if(time > 0)
 	{
-		//	Nachstes Kommando
+		//	Naechstes Kommando
 		var timeout = window.setTimeout('Do()', 1000);
 	}
 	else{
@@ -241,9 +242,47 @@ function Do(){
 // --------------------------------------------------------------------------------
 // End
 // ----------
+// Setzt alle Variablen zurück, versteckt alle Objekte und zeigt den Endbildschirm.
 // --------------------------------------------------------------------------------
 function End(){
 	
+	// Zuruecksetzten der Variablen
+		// Variablen fuer die Eingabe
+		dauer = 0;
+		korrektedauer = 0;
+		T = 0;
+		Kommandotyp_Fuesse = 'leer';
+		anzahl_haende = 'ohne';
+		Kommandotyp_Haende = 'leer';
+		// Timer
+		currenttime = 0;
+		starttime = 0;
+		lasttime = 0;
+		time = 0;
+		// Zahlen
+		linker_Fuss = 0;
+		rechter_Fuss = 0;
+		linke_Hand = 0;
+		rechte_Hand = 0;
+		// Typ
+		gemischt = false;
+		typ_fuesse = 1;
+		typ_heande = 1;
+	
+	// Verstecken der Objekte
+	document.getElementById('HintergrundUebung').style.zIndex = 1;
+	document.getElementById('Timer').style.zIndex = 1;
+	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 1;
+	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 1;
+	document.getElementById('Quadrat_linke_Hand').style.zIndex = 1;
+	document.getElementById('Quadrat_rechte_Hand').style.zIndex = 1;
+	
+	// Zeigen des Endbildschirms
+	document.getElementById('Endbildschirm').style.zIndex = 10;
+	
+	// Zeigen der Buttons
+	// Nochmal
+	// Exit
 }
 
 // --------------------------------------------------------------------------------

@@ -36,6 +36,18 @@ body {
 	background-color: white;
 	z-index: 1;
 }
+/*Endbildschirm*/
+#Endbildschirm{
+
+	position: absolute;
+	display: block;
+	left: 0%;
+	top: 0%;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	z-index: 1;
+}
 /*Input*/
 #Input1{
 	position: absolute;
