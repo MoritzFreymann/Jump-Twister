@@ -4,7 +4,7 @@ var dauer = 0;
 var korrektedauer = 0;
 var T = 0;
 var Kommandotyp_Fuesse = 'leer';
-var Anzahl_Haende = 'ohne';
+var anzahl_haende = 'ohne';
 var Kommandotyp_Haende = 'leer';
 // Timer
 var currenttime = 0;
@@ -75,12 +75,15 @@ function Start(){
 	document.getElementById('Start').style.zIndex = 1;
 	
 	// Aufrufen der Objekte
+		document.getElementById('HintergrundUebung').style.zIndex = 10
 	document.getElementById('Timer').style.zIndex = 20;
 	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
 	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
+	
+	if(anzahl_haende != 0){
 	document.getElementById('Quadrat_linke_Hand').style.zIndex = 20;
 	document.getElementById('Quadrat_rechte_Hand').style.zIndex = 20;
-	
+	}
 	// los geht's
 	Do();
 }
@@ -171,41 +174,54 @@ function Do(){
 			if(gemischt){
 				Kommandotyp_Haende = getTyp();
 			}
-			
-			switch(Kommandotyp_Haende){
+			switch(anzahl_haende){
 				
-				case 'Zahlen':
-				// Setze Zahlen
-				document.getElementById('Quadrat_linke_Hand').style.color = 'black';
-				document.getElementById('Quadrat_rechte_Hand').style.color = 'black';
-				document.getElementById('Quadrat_linke_Hand').innerHTML = linke_Hand;
-				document.getElementById('Quadrat_rechte_Hand').innerHTML = rechte_Hand;
-				// Setze Farben
-				document.getElementById('Quadrat_linke_Hand').style.backgroundColor = 'white';
-				document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = 'white';
-				// Setzte Rand
-				document.getElementById('Quadrat_linke_Hand').style.border = '1px solid black';
-				document.getElementById('Quadrat_rechte_Hand').style.border = '1px solid black';
+			case 0:
+				// mach nix
 				break;
+			case 1:
+				break;
+			case 2:
 				
-			case 'Farben':
-				// Erhalte neue Farben
-				var color_left = getColor(linke_Hand);
-				var color_right = getColor(rechte_Hand);
-				// Setze Farben
-				document.getElementById('Quadrat_linke_Hand').style.backgroundColor = color_left;
-				document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = color_right;
-				// Setze Farben der Zahlen auf Farben der Quadrate
-				document.getElementById('Quadrat_linke_Hand').style.color = color_left;
-				document.getElementById('Quadrat_rechte_Hand').style.color = color_right;
-				// Entferne Rand
-				document.getElementById('Quadrat_linke_Hand').style.border = '0px solid black';
-				document.getElementById('Quadrat_rechte_Hand').style.border = '0px solid black';
-				break;
-			default:
-				alert('Unzulässige Eingabe!');
+					switch(Kommandotyp_Haende){
+				
+					case 'Zahlen':
+						// Setze Zahlen
+						document.getElementById('Quadrat_linke_Hand').style.color = 'black';
+						document.getElementById('Quadrat_rechte_Hand').style.color = 'black';
+						document.getElementById('Quadrat_linke_Hand').innerHTML = linke_Hand;
+						document.getElementById('Quadrat_rechte_Hand').innerHTML = rechte_Hand;
+						// Setze Farben
+						document.getElementById('Quadrat_linke_Hand').style.backgroundColor = 'white';
+						document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = 'white';
+						// Setzte Rand
+						document.getElementById('Quadrat_linke_Hand').style.border = '1px solid black';
+						document.getElementById('Quadrat_rechte_Hand').style.border = '1px solid black';
+						break;
+						
+					case 'Farben':
+						// Erhalte neue Farben
+						var color_left = getColor(linke_Hand);
+						var color_right = getColor(rechte_Hand);
+						// Setze Farben
+						document.getElementById('Quadrat_linke_Hand').style.backgroundColor = color_left;
+						document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = color_right;
+						// Setze Farben der Zahlen auf Farben der Quadrate
+						document.getElementById('Quadrat_linke_Hand').style.color = color_left;
+						document.getElementById('Quadrat_rechte_Hand').style.color = color_right;
+						// Entferne Rand
+						document.getElementById('Quadrat_linke_Hand').style.border = '0px solid black';
+						document.getElementById('Quadrat_rechte_Hand').style.border = '0px solid black';
+						break;
+						
+					default:
+						alert('Unzulässige Eingabe!');
+						break;
+					}
+					
 				break;
 			}
+
 		}	
 
 	// ---------------------------
@@ -236,7 +252,10 @@ function End(){
 // Auslesen der Input-Variablen
 // --------------------------------------------------------------------------------
 function getvalues(){
+	
+	// Auslesen Dauer
 	dauer = document.getElementById("dauer").value;
+	// Auslesen Zeit zwischen Kommandos
 	T = document.getElementById("T").value;
 	
 	// Auslesen Kommandotyp_Fuesse
@@ -249,6 +268,20 @@ function getvalues(){
 	if(document.getElementById("zahlen3").checked){
 		Kommandotyp_Fuesse = document.getElementById("zahlen3").value;
 	}
+	
+	// Auslesen Anzahl_Haende
+	if(document.getElementById("anzahlhaende1").checked){
+		var anzahl = document.getElementById("anzahlhaende1").value;
+	}
+	if(document.getElementById("anzahlhaende2").checked){
+		var anzahl = document.getElementById("anzahlhaende2").value;
+	}
+	if(document.getElementById("anzahlhaende3").checked){
+		var anzahl = document.getElementById("anzahlhaende3").value;
+	}
+		// string to number
+		anzahl_haende = Number(anzahl);
+		console.log(anzahl_haende);
 	
 	// Auslesen Kommandotyp_Haende
 	if(document.getElementById("haende1").checked){

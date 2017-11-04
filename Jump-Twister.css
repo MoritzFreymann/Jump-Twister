@@ -57,12 +57,22 @@ body {
 	background-color: green;
 	z-index: 10;
 }
-#Input3{
+#Input_anzahl_haende{
 	position: absolute;
 	display: block;
 	left: 0%;
 	top: 60%;
-	height: 30%;
+	height: 20%;
+	width: 100%;
+	background-color: green;
+	z-index: 10;
+}
+#Input3{
+	position: absolute;
+	display: block;
+	left: 0%;
+	top: 80%;
+	height: 20%;
 	width: 100%;
 	background-color: green;
 	z-index: 10;
