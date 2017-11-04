@@ -14,7 +14,8 @@ var time = 0;
 // Zahlen
 var linker_Fuss = 0;
 var rechter_Fuss = 0;
-var Hand = 0;
+var linke_Hand = 0;
+var rechte_Hand = 0;
 // Typ
 var gemischt = false;
 var typ_fuesse = 1;
@@ -33,38 +34,11 @@ function Screen(){
 	screenwidth = screen.width;
 	screenheight = screen.height;
 }
-//
-/*
-//Positionen der rechten Kreise berechnen
-function GetRightPosition(){
-	
-	while(i < (2*anzahl + 2)){
-	
-	//Bestimmen der Position
 
-	positions[i+1] = Math.random() * 95;
-	
-	
-		//Pruefen, ob Position zulaessig
-		for(j=0; j < i; j+=2){
-			
-			if((Math.sqrt(Math.pow((positions[i] - positions[j]),2) + Math.pow((positions[i+1] - positions[j+1]),2))) > (5)){
-				
-			}
-			
-			else{
-				i-=2;
-				break;
-			}
-		}
-		i+=2;
-	}
-	//zuruecksaetzen von i
-	i = 0;
-}
-//
-*/
+// --------------------------------------------------------------------------------
 // EndInput
+// ----------
+// --------------------------------------------------------------------------------
 function EndInput(){
 	
 	//  verstecke Objekte
@@ -83,8 +57,14 @@ function EndInput(){
 	getvalues();
 	
 }
-// ----------------
+// --------------------------------------------------------------------------------
 // Start
+// ----------
+// Wird aufgerufen, wenn der Start-Button gedrückt wird.
+// Die Startzeit wird gespeichert, der Start-Button versteckt,
+// die Objekte zur Anzeige während der Übung aufgerufen
+// und die Funktion Do() wird zum ersten Mal aufgerufen
+// --------------------------------------------------------------------------------
 function Start(){
 
 	// Startzeit in Sekunden
@@ -98,13 +78,24 @@ function Start(){
 	document.getElementById('Timer').style.zIndex = 20;
 	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
 	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
+	document.getElementById('Quadrat_linke_Hand').style.zIndex = 20;
 	document.getElementById('Quadrat_rechte_Hand').style.zIndex = 20;
 	
 	// los geht's
 	Do();
 }
-// ----------------
+// --------------------------------------------------------------------------------
 // Do
+// ----------
+// Zentrale Function der App.
+// Hier wird die aktuelle Zeit ermittelt, die verbleibende Zeit ermittelt
+// und geprüft, ob das nächste Kommando fällig ist.
+// Wenn das der Fall ist, wird entsprechend ausgwähltem Kommandotyp,
+// das entsprechende Kommando ausgegeben.
+// Zuletzt wird geprüft, ob die Übungszeit abgelaufen ist.
+// Wenn nicht, dann wird Do() wieder aufgerufen,
+// wenn ja, dann wird die End-Seite gezeigt und End() aufgerufen.
+// --------------------------------------------------------------------------------
 function Do(){
 	
 	// get current time
@@ -185,31 +176,31 @@ function Do(){
 				
 				case 'Zahlen':
 				// Setze Zahlen
-				document.getElementById('Quadrat_linker_Fuss').style.color = 'black';
-				document.getElementById('Quadrat_rechter_Fuss').style.color = 'black';
-				document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
-				document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
+				document.getElementById('Quadrat_linke_Hand').style.color = 'black';
+				document.getElementById('Quadrat_rechte_Hand').style.color = 'black';
+				document.getElementById('Quadrat_linke_Hand').innerHTML = linke_Hand;
+				document.getElementById('Quadrat_rechte_Hand').innerHTML = rechte_Hand;
 				// Setze Farben
-				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'white';
-				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'white';
+				document.getElementById('Quadrat_linke_Hand').style.backgroundColor = 'white';
+				document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = 'white';
 				// Setzte Rand
-				document.getElementById('Quadrat_linker_Fuss').style.border = '1px solid black';
-				document.getElementById('Quadrat_rechter_Fuss').style.border = '1px solid black';
+				document.getElementById('Quadrat_linke_Hand').style.border = '1px solid black';
+				document.getElementById('Quadrat_rechte_Hand').style.border = '1px solid black';
 				break;
 				
 			case 'Farben':
 				// Erhalte neue Farben
-				var color_left = getColor(linker_Fuss);
-				var color_right = getColor(rechter_Fuss);
+				var color_left = getColor(linke_Hand);
+				var color_right = getColor(rechte_Hand);
 				// Setze Farben
-				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = color_left;
-				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = color_right;
+				document.getElementById('Quadrat_linke_Hand').style.backgroundColor = color_left;
+				document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = color_right;
 				// Setze Farben der Zahlen auf Farben der Quadrate
-				document.getElementById('Quadrat_linker_Fuss').style.color = color_left;
-				document.getElementById('Quadrat_rechter_Fuss').style.color = color_right;
+				document.getElementById('Quadrat_linke_Hand').style.color = color_left;
+				document.getElementById('Quadrat_rechte_Hand').style.color = color_right;
 				// Entferne Rand
-				document.getElementById('Quadrat_linker_Fuss').style.border = '0px solid black';
-				document.getElementById('Quadrat_rechter_Fuss').style.border = '0px solid black';
+				document.getElementById('Quadrat_linke_Hand').style.border = '0px solid black';
+				document.getElementById('Quadrat_rechte_Hand').style.border = '0px solid black';
 				break;
 			default:
 				alert('Unzulässige Eingabe!');
@@ -218,27 +209,37 @@ function Do(){
 		}	
 
 	// ---------------------------
-	//	Nachstes Kommando
+	//	Prüfen, ob Übung vorbei
 	// ---------------------------
 	if(time > 0)
 	{
+		//	Nachstes Kommando
 		var timeout = window.setTimeout('Do()', 1000);
 	}
 	else{
+		// Uebung vorbei
 		End();
 	}
 }
 //
+// --------------------------------------------------------------------------------
 // End
+// ----------
+// --------------------------------------------------------------------------------
 function End(){
 	
 }
 
-//
+// --------------------------------------------------------------------------------
+// getValues
+// ----------
+// Auslesen der Input-Variablen
+// --------------------------------------------------------------------------------
 function getvalues(){
 	dauer = document.getElementById("dauer").value;
 	T = document.getElementById("T").value;
 	
+	// Auslesen Kommandotyp_Fuesse
 	if(document.getElementById("zahlen1").checked){
 		Kommandotyp_Fuesse = document.getElementById("zahlen1").value;
 	}
@@ -248,20 +249,45 @@ function getvalues(){
 	if(document.getElementById("zahlen3").checked){
 		Kommandotyp_Fuesse = document.getElementById("zahlen3").value;
 	}
+	
+	// Auslesen Kommandotyp_Haende
+	if(document.getElementById("haende1").checked){
+		Kommandotyp_Haende = document.getElementById("haende1").value;
+	}
+	if(document.getElementById("haende2").checked){
+		Kommandotyp_Haende = document.getElementById("haende2").value;
+	}
+	if(document.getElementById("haende3").checked){
+		Kommandotyp_Haende = document.getElementById("haende3").value;
+	}	
 }
-//
+// --------------------------------------------------------------------------------
+// getrandomNumbers
+// ----------
+// Berechnet mithilfe der Funktion Math.random() Zufallszahlen
+// zwischen 1 und 4 und speichert bei den entsprechenden 
+// globalen Variablen, welche das Komando angeben ab.
+// --------------------------------------------------------------------------------
 function getrandomNumbers(){
 	
+	// linker Fuss
 	var random = Math.random() * 4;
 	linker_Fuss = Math.ceil(random);
-	
+	// rechter_Fuss
 	var random = Math.random() * 4;
 	rechter_Fuss = Math.ceil(random);
-	
+	// linke Hand
 	var random = Math.random() * 4;
-	Hand = Math.ceil(random);
+	linke_Hand = Math.ceil(random);
+	// rechte_Hand
+	var random = Math.random() * 4;
+	rechte_Hand = Math.ceil(random);
 }
-// 
+// --------------------------------------------------------------------------------
+// getColor
+// ----------
+// Ermittel aus der Zufallszahl die entsprechende Farbe.
+// --------------------------------------------------------------------------------
 function getColor(i){
 	var color = 'white';
 	switch(i){
@@ -283,7 +309,12 @@ function getColor(i){
 	}	
 	return color;
 }
-//
+// --------------------------------------------------------------------------------
+// getTyp
+// ----------
+// Berechnet und gibt den aktuellen Kommandotyp zurück,
+// wenn Kommandotyp 'Gemischt' eingegeben wurde.
+// --------------------------------------------------------------------------------
 function getTyp(){
 	
 	var random = Math.random();
