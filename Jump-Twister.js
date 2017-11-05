@@ -141,10 +141,10 @@ function Do(){
 				
 			case 'Zahlen':
 				// Setze Zahlen
-				document.getElementById('Quadrat_linker_Fuss').style.color = 'black';
-				document.getElementById('Quadrat_rechter_Fuss').style.color = 'black';
-				document.getElementById('Quadrat_linker_Fuss_text').innerHTML = linker_Fuss;
-				document.getElementById('Quadrat_rechter_Fuss_text').innerHTML = rechter_Fuss;
+				document.getElementById('Quadrat_linker_Fuss_text').style.color = 'black';		// Farbe zurück schwarz setzen
+				document.getElementById('Quadrat_rechter_Fuss_text').style.color = 'black';		// Farbe zurück schwarz setzen
+				document.getElementById('Quadrat_linker_Fuss_text').innerHTML = linker_Fuss;	// Zufallszahl übergeben
+				document.getElementById('Quadrat_rechter_Fuss_text').innerHTML = rechter_Fuss;	// Zufallszahl übergeben
 				// Setze Farben
 				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'white';
 				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'white';
@@ -192,10 +192,10 @@ function Do(){
 				
 					case 'Zahlen':
 						// Setze Zahlen
-						document.getElementById('Quadrat_linke_Hand_text').style.color = 'black';
-						document.getElementById('Quadrat_rechte_Hand_text').style.color = 'black';
-						document.getElementById('Quadrat_linke_Hand_text').innerHTML = linke_Hand;
-						document.getElementById('Quadrat_rechte_Hand_text').innerHTML = rechte_Hand;
+						document.getElementById('Quadrat_linke_Hand_text').style.color = 'black';		// Farbe zurück schwarz setzen
+						document.getElementById('Quadrat_rechte_Hand_text').style.color = 'black';		// Farbe zurück schwarz setzen
+						document.getElementById('Quadrat_linke_Hand_text').innerHTML = linke_Hand;		// Zufallszahl übergeben
+						document.getElementById('Quadrat_rechte_Hand_text').innerHTML = rechte_Hand;	// Zufallszahl übergeben
 						// Setze Farben
 						document.getElementById('Quadrat_linke_Hand').style.backgroundColor = 'white';
 						document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = 'white';
