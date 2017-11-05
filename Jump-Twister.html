@@ -5,16 +5,18 @@
 	<link rel="stylesheet" type="text/css" href="Jump-Twister.css">
 </head>
 <body>
+	<!-- Einbinden Javascript-->
 	<script src="Jump-Twister.js">
 	</script>
 	
+	<!-- Kreise-->
 	<form action="" id="Input1">
 		
 		<br>
 		Übungsdauer [s]: <input type="number" id="dauer" name="dauer" value="120"><br>
 		Zeit zwischen Kommandos [s]: <input type="number" id="T" name="T" value="5"><br>
 	</form>	
-
+	<!-- Kreise-->
 	<form action="" id="Input2">	
 		<p>Geben Sie die Art des Kommados der Füße ein:</p>
 		<fieldset>
@@ -24,7 +26,7 @@
 		</fieldset>
 		<br>
 	</form>	
-	
+	<!-- Kreise-->
 	<form action="" id="Input_anzahl_haende">	
 		<p>Geben Sie die Anzahl der Hände ein:</p>
 		<fieldset>
@@ -34,7 +36,7 @@
 		</fieldset>
 		<br>
 	</form>
-	
+	<!-- Kreise-->
 	<form action="" id="Input3">	
 		<p>Geben Sie die Art des Kommados der Hände ein:</p>
 		<fieldset>
@@ -48,15 +50,29 @@
 	<input id="fertig" type="button" onclick="EndInput();"> Fertig </input>
 	
 	<input id = "Start" type="button" onclick="Start();"> Los geht's! </input>
-	
-<div id = "HintergrundUebung"> </div>
-<div id = "Quadrat_linker_Fuss"> </div>
-<div id = "Quadrat_rechter_Fuss"> </div>
-<div id = "Quadrat_linke_Hand"> </div>
-<div id = "Quadrat_rechte_Hand"> </div>	
-<div id = "Timer"> </div>
-<div id = "Endbildschirm"> </div>
 
+
+<div class="anzeige" id = "HintergrundUebung"></div>
+
+<!-- Anzeigen-->
+<div class="anzeige" id = "Quadrat_linker_Fuss"> 
+	<div class="text" id="Quadrat_linker_Fuss_text"></div>
+</div>
+<div class="anzeige" id = "Quadrat_rechter_Fuss"> 
+	<div class="text" id="Quadrat_rechter_Fuss_text"></div>
+</div>
+<div class="anzeige" id = "Quadrat_linke_Hand"> 
+	<div class="text" id="Quadrat_linke_Hand_text"></div>
+</div>
+<div class="anzeige" id = "Quadrat_rechte_Hand"> 
+	<div class="text" id="Quadrat_rechte_Hand_text"></div>
+</div>	
+<div class="anzeige"  id = "Timer"> 
+	<div class="text" id="Timer_text"></div>
+</div>
+
+<!-- Endbildschirm-->
+<div id = "Endbildschirm"> </div>
 <div id = "Nochmal" type="button" onclick="nochmal()"> Nochmal </div>
 <div id = "Exit" type="button" onclick="exit()"> Exit </div>
 

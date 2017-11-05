@@ -78,6 +78,7 @@ function Start(){
 	// Aufrufen der Objekte
 		document.getElementById('HintergrundUebung').style.zIndex = 10;
 	document.getElementById('Timer').style.zIndex = 20;
+	document.getElementById('Timer_text').style.zIndex = 20;
 	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
 	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
 	
@@ -110,7 +111,7 @@ function Do(){
 	time = dauer - (currenttime - starttime);
 
 	// zeige Zeit
-	document.getElementById('Timer').innerHTML = time;
+	document.getElementById('Timer_text').innerHTML = time;
 	
 		if( currenttime - lasttime >= T ){
 			
@@ -139,8 +140,8 @@ function Do(){
 				// Setze Zahlen
 				document.getElementById('Quadrat_linker_Fuss').style.color = 'black';
 				document.getElementById('Quadrat_rechter_Fuss').style.color = 'black';
-				document.getElementById('Quadrat_linker_Fuss').innerHTML = linker_Fuss;
-				document.getElementById('Quadrat_rechter_Fuss').innerHTML = rechter_Fuss;
+				document.getElementById('Quadrat_linker_Fuss_text').innerHTML = linker_Fuss;
+				document.getElementById('Quadrat_rechter_Fuss_text').innerHTML = rechter_Fuss;
 				// Setze Farben
 				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = 'white';
 				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = 'white';
@@ -157,8 +158,8 @@ function Do(){
 				document.getElementById('Quadrat_linker_Fuss').style.backgroundColor = color_left;
 				document.getElementById('Quadrat_rechter_Fuss').style.backgroundColor = color_right;
 				// Setze Farben der Zahlen auf Farben der Quadrate
-				document.getElementById('Quadrat_linker_Fuss').style.color = color_left;
-				document.getElementById('Quadrat_rechter_Fuss').style.color = color_right;
+				document.getElementById('Quadrat_linker_Fuss_text').style.color = color_left;
+				document.getElementById('Quadrat_rechter_Fuss_text').style.color = color_right;
 				// Entferne Rand
 				document.getElementById('Quadrat_linker_Fuss').style.border = '0px solid black';
 				document.getElementById('Quadrat_rechter_Fuss').style.border = '0px solid black';
@@ -188,10 +189,10 @@ function Do(){
 				
 					case 'Zahlen':
 						// Setze Zahlen
-						document.getElementById('Quadrat_linke_Hand').style.color = 'black';
-						document.getElementById('Quadrat_rechte_Hand').style.color = 'black';
-						document.getElementById('Quadrat_linke_Hand').innerHTML = linke_Hand;
-						document.getElementById('Quadrat_rechte_Hand').innerHTML = rechte_Hand;
+						document.getElementById('Quadrat_linke_Hand_text').style.color = 'black';
+						document.getElementById('Quadrat_rechte_Hand_text').style.color = 'black';
+						document.getElementById('Quadrat_linke_Hand_text').innerHTML = linke_Hand;
+						document.getElementById('Quadrat_rechte_Hand_text').innerHTML = rechte_Hand;
 						// Setze Farben
 						document.getElementById('Quadrat_linke_Hand').style.backgroundColor = 'white';
 						document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = 'white';
@@ -208,8 +209,8 @@ function Do(){
 						document.getElementById('Quadrat_linke_Hand').style.backgroundColor = color_left;
 						document.getElementById('Quadrat_rechte_Hand').style.backgroundColor = color_right;
 						// Setze Farben der Zahlen auf Farben der Quadrate
-						document.getElementById('Quadrat_linke_Hand').style.color = color_left;
-						document.getElementById('Quadrat_rechte_Hand').style.color = color_right;
+						document.getElementById('Quadrat_linke_Hand_text').style.color = color_left;
+						document.getElementById('Quadrat_rechte_Hand_text').style.color = color_right;
 						// Entferne Rand
 						document.getElementById('Quadrat_linke_Hand').style.border = '0px solid black';
 						document.getElementById('Quadrat_rechte_Hand').style.border = '0px solid black';

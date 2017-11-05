@@ -112,11 +112,13 @@ body {
 	z-index: 1;
 }
 /*Anzeigen*/
+.anzeige{
+	 display: table;
+	 position: absolute;
+}
 #Quadrat_linker_Fuss{
 
 	border: 0px solid red;
-	position: absolute;
-	display: block;
 	top: 30%;
 	left: 30%;
 	height: 40px;
@@ -129,8 +131,6 @@ body {
 #Quadrat_rechter_Fuss{
 
 	border: 0px solid red;
-	position: absolute;
-	display: block;
 	top: 30%;
 	left: 50%;
 	height: 40px;
@@ -143,8 +143,6 @@ body {
 #Quadrat_linke_Hand{
 
 	border: 0px solid red;
-	position: absolute;
-	display: block;
 	top: 70%;
 	left: 30%;
 	height: 40px;
@@ -157,8 +155,6 @@ body {
 #Quadrat_rechte_Hand{
 
 	border: 0px solid red;
-	position: absolute;
-	display: block;
 	top: 70%;
 	left: 50%;
 	height: 40px;
@@ -169,15 +165,37 @@ body {
 	z-index: 1;
 }
 #Timer{
-
 	border: 1px solid black;
 	position: absolute;
-	display: block;
 	right: 10%;
 	top: 10%;
 	height: 40px;
 	width: 100px;
 	background-color: white;
-	text-align: center;
 	z-index: 1;
+}
+/*texte*/
+.text{
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	top: 0%;
+	height: 50%;
+}
+#Timer_text{
+
+	z-index: 30;
+}
+#Quadrat_linker_Fuss_text{
+	z-index: 30;
+}
+#Quadrat_rechter_Fuss_text{
+	z-index: 30;
+}
+#Quadrat_linke_Hand_text{
+	z-index: 30;	
+}
+#Quadrat_rechte_Hand_text{
+	z-index: 30;	
 }
