@@ -281,8 +281,8 @@ function End(){
 	document.getElementById('Endbildschirm').style.zIndex = 10;
 	
 	// Zeigen der Buttons
-	// Nochmal
-	// Exit
+	document.getElementById('Nochmal').style.zIndex = 20;	// Nochmal
+	document.getElementById('Exit').style.zIndex = 20;		// Exit
 }
 
 // --------------------------------------------------------------------------------
@@ -320,7 +320,6 @@ function getvalues(){
 	}
 		// string to number
 		anzahl_haende = Number(anzahl);
-		console.log(anzahl_haende);
 	
 	// Auslesen Kommandotyp_Haende
 	if(document.getElementById("haende1").checked){
@@ -399,4 +398,33 @@ function getTyp(){
 		var newTyp = 'Farben';
 	}
 	return newTyp;
+}
+// --------------------------------------------------------------------------------
+// nochmal
+// ----------
+// Berechnet und gibt den aktuellen Kommandotyp zurück,
+// wenn Kommandotyp 'Gemischt' eingegeben wurde.
+// --------------------------------------------------------------------------------
+function nochmal(){
+	
+	console.log('cookie');
+	// Verstecke Endbildschirm und Buttons
+	document.getElementById('Endbildschirm').style.zIndex = 1;
+	document.getElementById('Nochmal').style.zIndex = 1;
+	document.getElementById('Exit').style.zIndex = 1;
+	
+	// Zeige Objekte für Input
+	document.getElementById('Input1').style.zIndex = 20;
+	document.getElementById('Input2').style.zIndex = 20;
+	document.getElementById('Input_anzahl_haende').style.zIndex = 20;
+	document.getElementById('Input3').style.zIndex = 20;
+	document.getElementById('fertig').style.zIndex = 20;
+}
+// --------------------------------------------------------------------------------
+// exit
+// ----------
+// Schließt den Tab, in dem die App geöffnet wurde
+// --------------------------------------------------------------------------------
+function exit(){
+	
 }

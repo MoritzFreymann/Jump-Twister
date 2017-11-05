@@ -36,18 +36,6 @@ body {
 	background-color: white;
 	z-index: 1;
 }
-/*Endbildschirm*/
-#Endbildschirm{
-
-	position: absolute;
-	display: block;
-	left: 0%;
-	top: 0%;
-	height: 100%;
-	width: 100%;
-	background-color: white;
-	z-index: 1;
-}
 /*Input*/
 #Input1{
 	position: absolute;
@@ -88,6 +76,40 @@ body {
 	width: 100%;
 	background-color: green;
 	z-index: 10;
+}
+/*Endbildschirm*/
+#Endbildschirm{
+
+	position: absolute;
+	display: block;
+	left: 0%;
+	top: 0%;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	z-index: 1;
+}
+#Nochmal{
+
+	position: absolute;
+	display: block;
+	left: 20%;
+	top: 50%;
+	height: 20%;
+	width: 20%;
+	background-color: blue;
+	z-index: 1;
+}
+#Exit{
+
+	position: absolute;
+	display: block;
+	left: 80%;
+	top: 50%;
+	height: 20%;
+	width: 20%;
+	background-color: blue;
+	z-index: 1;
 }
 /*rotes Quadrat*/
 #Quadrat_linker_Fuss{
