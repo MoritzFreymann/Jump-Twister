@@ -76,15 +76,18 @@ function Start(){
 	document.getElementById('Start').style.zIndex = 1;
 	
 	// Aufrufen der Objekte
-		document.getElementById('HintergrundUebung').style.zIndex = 10;
+	document.getElementById('HintergrundUebung').style.zIndex = 10;
 	document.getElementById('Timer').style.zIndex = 20;
 	document.getElementById('Timer_text').style.zIndex = 20;
 	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 20;
 	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 20;
-	
+	document.getElementById('Quadrat_linker_Fuss_text').style.zIndex = 30;
+	document.getElementById('Quadrat_rechter_Fuss_text').style.zIndex = 30;
 	if(anzahl_haende != 0){
 	document.getElementById('Quadrat_linke_Hand').style.zIndex = 20;
 	document.getElementById('Quadrat_rechte_Hand').style.zIndex = 20;
+	document.getElementById('Quadrat_linke_Hand_text').style.zIndex = 30;
+	document.getElementById('Quadrat_rechte_Hand_text').style.zIndex = 30;
 	}
 	// los geht's
 	Do();
@@ -275,9 +278,13 @@ function End(){
 	document.getElementById('Timer').style.zIndex = 1;
 	document.getElementById('Quadrat_linker_Fuss').style.zIndex = 1;
 	document.getElementById('Quadrat_rechter_Fuss').style.zIndex = 1;
+	document.getElementById('Quadrat_linker_Fuss_text').style.zIndex = 1;
+	document.getElementById('Quadrat_rechter_Fuss_text').style.zIndex = 1;
 	document.getElementById('Quadrat_linke_Hand').style.zIndex = 1;
 	document.getElementById('Quadrat_rechte_Hand').style.zIndex = 1;
-	
+	document.getElementById('Quadrat_linke_Hand_text').style.zIndex = 1;
+	document.getElementById('Quadrat_rechte_Hand_text').style.zIndex = 1;
+		
 	// Zeigen des Endbildschirms
 	document.getElementById('Endbildschirm').style.zIndex = 10;
 	

@@ -184,18 +184,17 @@ body {
 	height: 50%;
 }
 #Timer_text{
-
-	z-index: 30;
+	z-index: 1;
 }
 #Quadrat_linker_Fuss_text{
-	z-index: 30;
+	z-index: 1;
 }
 #Quadrat_rechter_Fuss_text{
-	z-index: 30;
+	z-index: 1;
 }
 #Quadrat_linke_Hand_text{
-	z-index: 30;	
+	z-index: 1;	
 }
 #Quadrat_rechte_Hand_text{
-	z-index: 30;	
+	z-index: 1;	
 }
