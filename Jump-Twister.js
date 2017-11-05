@@ -426,5 +426,5 @@ function nochmal(){
 // Schließt den Tab, in dem die App geöffnet wurde
 // --------------------------------------------------------------------------------
 function exit(){
-	
+	window.close();
 }
